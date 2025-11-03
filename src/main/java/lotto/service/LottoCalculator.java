@@ -54,4 +54,9 @@ public class LottoCalculator {
 
         return totalPrize;
     }
+
+    public static double calculateProfitRate(int purchaseAmount, List<Rank> ranks) {
+        int totalPrize = calculateTotalPrize(ranks);
+        return  (double) purchaseAmount / totalPrize * 100;
+    }
 }
