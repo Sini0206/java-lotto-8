@@ -28,4 +28,8 @@ public class OutputView {
             System.out.println(lotto.getNumbers());
         }
     }
+    
+    public static void printProfitRate(Double profitRate) {
+        System.out.println("총 수익률은 " + String.format("%.1f", profitRate) + "%입니다.");
+    }
 }
