@@ -17,4 +17,17 @@ public class InputValidator {
             throw new IllegalArgumentException(ErrorMessage.NOT_NUMBER.getMessage());
         }
     }
+
+    public static int validateBonusNumber(String input, List<Integer> numbers) {
+        validateInput(input);
+        int bonus = canParseToNumber(input);
+
+        for (int num : numbers) {
+            if (bonus == num) {
+                throw new IllegalArgumentException(ErrorMessage.CAN_NOT_MATCH_BONUS_NUMBER.getMessage());
+            }
+        }
+
+        return bonus;
+    }
 }
