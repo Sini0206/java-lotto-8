@@ -2,6 +2,10 @@ package lotto.view;
 
 import camp.nextstep.edu.missionutils.Console;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import static lotto.validator.InputValidator.canParseToNumber;
 import static lotto.validator.InputValidator.validateInput;
 
 public class InputView {
@@ -15,5 +19,15 @@ public class InputView {
         validateInput(input);
 
         return input;
+    }
+
+    public static List<Integer> parseNumbers(String input) {
+        List<Integer> numbers = new ArrayList<>();
+
+        for (String s : input.split(",")) {
+            int num = canParseToNumber(s);
+            numbers.add(num);
+        }
+        return numbers;
     }
 }
