@@ -40,4 +40,18 @@ public class LottoCalculator {
 
         return statistics;
     }
+
+    private static int calculateTotalPrize(List<Rank> ranks) {
+        if (ranks.isEmpty()) {
+            return 0;
+        }
+
+        int totalPrize = 0;
+
+        for (Rank rank : ranks) {
+            totalPrize += rank.getPrize();
+        }
+
+        return totalPrize;
+    }
 }
