@@ -2,6 +2,8 @@ package lotto.validator;
 
 import lotto.enums.ErrorMessage;
 
+import java.util.List;
+
 import static lotto.validator.InputValidator.canParseToNumber;
 import static lotto.validator.InputValidator.validateInput;
 
@@ -29,4 +31,11 @@ public class LottoValidator {
         }
     }
 
+    public static void validateRange(List<Integer> numbers) {
+        ;
+        for (int num : numbers) {
+            if (num < LOTTO_MIN_NUMBER || num > LOTTO_MAX_NUMBER)
+                throw new IllegalArgumentException(ErrorMessage.WRONG_LOTTO_NUMBER_RANGE.getMessage());
+        }
+    }
 }
