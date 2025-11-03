@@ -28,7 +28,16 @@ public class OutputView {
             System.out.println(lotto.getNumbers());
         }
     }
-    
+
+    public static void printStatistics(double profitRate, Map<Rank, Integer> rankAndCount) {
+        System.out.println("당첨 통계\n" + "---");
+        for (Rank rank: rankAndCount.keySet()) {
+            System.out.println(rank.getMatchCount() + "개 일치 " + "(" + rank.getPrize() + ") "
+                    + "- " + rankAndCount.get(rank) + "개");
+        }
+        printProfitRate(profitRate);
+    }
+
     public static void printProfitRate(Double profitRate) {
         System.out.println("총 수익률은 " + String.format("%.1f", profitRate) + "%입니다.");
     }
