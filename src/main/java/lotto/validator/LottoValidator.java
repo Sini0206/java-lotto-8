@@ -31,6 +31,12 @@ public class LottoValidator {
         }
     }
 
+    public static void validateSize(List<Integer> numbers) {
+        if (numbers.size() != LOTTO_SIZE) {
+            throw new IllegalArgumentException(ErrorMessage.WRONG_LOTTO_NUMBER_SIZE.getMessage());
+        }
+    }
+
     public static void validateRange(List<Integer> numbers) {
         ;
         for (int num : numbers) {
