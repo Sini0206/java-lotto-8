@@ -2,6 +2,7 @@ package lotto.service;
 
 import camp.nextstep.edu.missionutils.Randoms;
 import lotto.model.Lotto;
+import lotto.dto.WinnerLotto;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -23,6 +24,19 @@ public class LottoFactory {
         }
 
         return lottos;
+    }
+
+    public static WinnerLotto createRandomWinnerLotto() {
+        List<Integer> nums = Randoms.pickUniqueNumbersInRange(LOTTO_MIN_NUMBER, LOTTO_MAX_NUMBER, LOTTO_SIZE+1);
+
+        int bonusNumber = nums.getLast();
+        nums.removeLast();
+
+        return new WinnerLotto(nums, bonusNumber);
+    }
+
+    public static WinnerLotto createWinnerLotto(List<Integer> nums, int bonusNumber) {
+        return new WinnerLotto(nums, bonusNumber);
     }
 
 }
